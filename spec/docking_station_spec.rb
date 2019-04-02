@@ -6,8 +6,13 @@ describe DockingStation do
     expect(subject).to respond_to :release_bike
   end
 
-  it 'creates a new Bike object' do
+  it 'creates a new Bike object if bike is working' do
     bike = subject.release_bike
     expect(bike). to be_working
+  end
+
+  it 'docks something' do
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq bike
   end
 end
